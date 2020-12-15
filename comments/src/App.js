@@ -1,88 +1,64 @@
 import React, { Component } from 'react';
 import './App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+// Components
+import AdminMode from './components/AdminMode';
+import AddComment from './components/AddComment';
+import Comments from './components/Comments';
 
-    this.state = {
-      name: "",
-      message: "",
-      comments: []
+export default class App extends Component {
+      state = {
+          name: "",
+          message: "",
+          comments: []
       }
-    }
 
     handleName = (event) => {
-      this.setState({
-        name: event.target.value
-      })
+        console.log(event.target.value);
+        
+        this.setState({
+            name: event.target.value
+        })
     }
 
     handleMessage = (event) => {
-      this.setState({
-        message: event.target.value
-      })
+        console.log(event.target.value);
+
+        this.setState({
+            message: event.target.value
+        })
     }
 
     handleSubmit = (event) => {
-      event.preventDefault();
+        event.preventDefault();
 
-      const comment = {
-        name: this.state.name,
-        message: this.state.message
-      }
+        const comment = {
+            name: this.state.name,
+            message: this.state.message
+        }
 
-      const temp = this.state.comments.concat(comment);
+        const temp = this.state.comments.concat(comment);
 
-      this.setState({
-        comments: temp
-      })
+        this.setState({
+            comments: temp
+        })
     }
 
     render() {
-      return (
-          <div className="container">
-            <div className="add_content">
-              <h1 className="add_title">Ajouter un commentaire</h1>
-              <form action="" method="post" className="add_form" onSubmit={this.handleSubmit}>
-                <div className="field">
-                  <label className="field_label">Name</label>
-                  <input 
-                  type="text" 
-                  name="name" 
-                  id="name" 
-                  placeholder="Your name" 
-                  className="add_name"
-                  onChange={this.handleName} />
+        return ( 
+            <div>
+            <AdminMode />
+            <div className="container">
+                <AddComment 
+                name={this.state.name}
+                message={this.state.message}
+                handleName={this.handleName}
+                handleMessage={ this.handleMessage}
+                handleSubmit={ this.handleSubmit}
+                comments={this.state.comments} /> 
+                <Comments comments={this.state.comments} /> 
                 </div>
-                <div className="field">
-                  <label className="field_label">Message</label>
-                  <textarea 
-                  name="message" 
-                  id="message" 
-                  cols="30" 
-                  rows="10" 
-                  placeholder="Your comment" 
-                  className="add_message"
-                  onChange={this.handleMessage}></textarea>
-                </div>
-                <button type="submit" className="add_button">Envoyer</button>
-              </form>
             </div>
-            <div className="comments_content">
-              <h1 className="comments_title">Liste des commentaires ({this.state.comments.length})</h1>
-              <ul className="comments_list">
-                {this.state.comments.map((item) =>
-                  <li>
-                    <strong>{item.name}</strong>
-                    <p>{item.message}</p>
-                  </li>
-                )}
-              </ul>
-            </div>
-          </div>
         );
     }
 }
-
-export default App;

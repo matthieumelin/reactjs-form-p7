@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.add_content {
+    width: 40%;
+}
+
+.add_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add_name {
+    margin-bottom: 20px;
+    padding: 20px;
+    color: lightgray;
+    outline: none;
+    border: 1px solid lightgray;
+    width: 100%;
+}
+
+.add_message {
+    color: lightgray;
+    outline: none;
+    padding: 20px;
+    border: 1px solid lightgray;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.comments_content {
+    margin-left: 100px;
+}
+
+.comments_list {
+    list-style-type: none;
+    padding-left: 0;
+}
