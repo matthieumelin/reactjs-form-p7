@@ -5,7 +5,7 @@ export default class AddComment extends Component {
         const { handleName, handleMessage, handleSubmit } = this.props;
         return ( 
             <div className="add_content">
-              <h2 class="title is-2">Ajouter un commentaire</h2>
+              <h3 className="title is-3">Ajouter un commentaire</h3>
               <form className="add_form" 
               onSubmit={handleSubmit}>
                 <div className="field">

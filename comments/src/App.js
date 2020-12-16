@@ -10,7 +10,11 @@ export default class App extends Component {
       state = {
           name: "",
           message: "",
-          comments: []
+          comments: [],
+          adminMode: false,
+          adminMessage: "message is-info",
+          adminButton: "button is-info",
+          adminText: "Activer le mode d'administration",
       }
 
     handleName = (event) => {
@@ -44,19 +48,45 @@ export default class App extends Component {
         })
     }
 
+    handleButton = (event) => {
+        event.preventDefault();
+
+        if (!this.state.adminMode) {
+            this.setState({
+                adminMode: true,
+                adminMessage: "message is-danger",
+                adminButton: "button is-danger",
+                adminText: "Désactiver le mode d'administration",
+            })
+        } else {
+            this.setState({ 
+                adminMode: false,
+                adminMessage: "message is-info",
+                adminButton: "button is-info",
+                adminText: "Activer le mode d'administration",
+            })
+        }
+    }
+
     render() {
         return ( 
             <div>
-            <AdminMode />
-            <div className="container">
-                <AddComment 
-                name={this.state.name}
-                message={this.state.message}
-                handleName={this.handleName}
-                handleMessage={ this.handleMessage}
-                handleSubmit={ this.handleSubmit}
-                comments={this.state.comments} /> 
-                <Comments comments={this.state.comments} /> 
+                <div className="container">
+                    <AdminMode
+                    adminMessage={this.state.adminMessage}
+                    adminButton={this.state.adminButton}
+                    adminText={this.state.adminText}
+                    handleButton={this.handleButton} />
+                <div className="content">
+                    <AddComment 
+                    name={this.state.name}
+                    message={this.state.message}
+                    handleName={this.handleName}
+                    handleMessage={this.handleMessage}
+                    handleSubmit={this.handleSubmit}
+                    comments={this.state.comments} /> 
+                    <Comments comments={this.state.comments} /> 
+                    </div>
                 </div>
             </div>
         );

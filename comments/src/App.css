@@ -7703,11 +7703,14 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   padding: 3rem 1.5rem 6rem; }
 
 .container {
+  width: 100%; }
+
+.content {
   display: flex;
-  justify-content: center; }
+  margin-top: 50px; }
 
 .add_content {
-  width: 40%; }
+  width: 50%; }
 
 .add_form {
   display: flex;
@@ -7716,13 +7719,13 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .add_name {
   margin-bottom: 20px;
   padding: 20px;
-  color: lightgray;
+  color: gray;
   outline: none;
   border: 1px solid lightgray;
   width: 100%; }
 
 .add_message {
-  color: lightgray;
+  color: gray;
   outline: none;
   padding: 20px;
   border: 1px solid lightgray;
@@ -7730,8 +7733,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   margin-bottom: 20px; }
 
 .comments_content {
-  margin-left: 100px; }
+  margin-left: 20px; }
 
 .comments_list {
-  list-style-type: none;
+  list-style: none !important;
   padding-left: 0; }

@@ -7,8 +7,10 @@ export default class Comments extends Component {
         const {comments} = this.props;
         return (
             <div className="comments_content">
-            <h2 className="title is-2">Liste des commentaires ({comments.length})</h2>
-            <Comment comments={comments} />
+                <h3 className="title is-3">Liste des commentaires ({comments.length})</h3>
+                <ul className="comments_list">
+                    <Comment comments={comments} />
+                </ul>
           </div>
         )
     }

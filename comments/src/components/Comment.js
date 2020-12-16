@@ -5,14 +5,12 @@ export default class Comment extends Component {
         const {comments} = this.props;
         return (
             <div>
-                <ul className="comments_list">
-                    {comments.map((item) =>
-                        <li key={item}>
-                            <strong>{item.name}</strong>
-                            <p>{item.message}</p>
-                        </li>
-                    )}
-                </ul>
+                {comments.map((item) =>
+                    <li key={item}>
+                        <strong>{item.name}</strong>
+                        <p>{item.message}</p>
+                    </li>
+                )}
             </div>
         )
     }
